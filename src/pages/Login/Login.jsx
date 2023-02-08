@@ -115,10 +115,6 @@ const Login = () => {
             </div>
           </div>
         </div>
-      {/* <div className="lg-box">
-        <div className="box">
-        </div>
-      </div> */}
       </div>
     </>
   );

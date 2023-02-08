@@ -36,7 +36,7 @@ let getLogin = (user, navigate) => {
             if (localStorage.token) {
                 dispatch(getUserInfo());
             }
-            navigate("/home");
+            navigate("/");
         } catch (error) {
             dispatch({ type: LOGIN_FAILURE, payload: error });
         }
@@ -84,7 +84,7 @@ let getUserInfo = () => {
             }
             dispatch({ type: GET_USER_INFO_REQUEST });
             let response = await axios.get(`http://127.0.0.1:4000/user/`);
-            
+
             dispatch({ type: GET_USER_INFO_SUCCESS, payload: response.data });
         } catch (error) {
             dispatch({ type: GET_USER_INFO_FAILURE, payload: error });

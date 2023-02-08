@@ -49,6 +49,7 @@ let userReducer = (state = initialState, action) => {
             return {
                 ...state,
                 loading: false,
+                user: payload.user,
                 token: payload.token,
                 isAuthenticated: true,
             };

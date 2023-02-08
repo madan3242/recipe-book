@@ -1,3 +1,5 @@
+import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Link } from "react-router-dom";
 // import image from "../../images/chicken-biryani.jpg";
@@ -12,7 +14,15 @@ const RecipeCard = ({id, name, image}) => {
         <img src={image} className="card-img-top" alt="recipe image" />
       </Link>
         <div className="card-body">
-          <h5 className="card-title">{name}</h5>
+          <div className="row">
+            <div className="col-md-10">
+              <h5 className="card-title">{name}</h5>
+            </div>
+            <div className="col ml-auto">
+                <span className="ml-auto"><FontAwesomeIcon icon={faHeart} /></span>
+              
+            </div>
+          </div>
         </div>
       </div>
     </div>
