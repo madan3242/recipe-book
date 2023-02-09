@@ -1,17 +1,20 @@
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import axios from "axios";
 import React from "react";
 import { Link } from "react-router-dom";
-// import image from "../../images/chicken-biryani.jpg";
 
-const RecipeCard = ({id, name, image}) => {
+const RecipeCard = ({id, name, image, userId}) => {
+  let saveRecipe = () => {
+    let url = `http://127.0.0.1:4000/user/${userId}/${id}`
+    axios.patch(url)
+  }
 
   return (
     <div className="col-lg-3">
-      {JSON.stringify()}
       <div className="card mb-3">
       <Link to={`/recipe/${id}`}>
-        <img src={image} className="card-img-top" alt="recipe image" />
+        <img src={image} className="card-img-top" alt="recipe-image" />
       </Link>
         <div className="card-body">
           <div className="row">
@@ -19,8 +22,7 @@ const RecipeCard = ({id, name, image}) => {
               <h5 className="card-title">{name}</h5>
             </div>
             <div className="col ml-auto">
-                <span className="ml-auto"><FontAwesomeIcon icon={faHeart} /></span>
-              
+                <span className="ml-auto"><FontAwesomeIcon icon={faHeart} onClick={saveRecipe} /></span>
             </div>
           </div>
         </div>

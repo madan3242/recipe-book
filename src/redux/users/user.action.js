@@ -1,5 +1,4 @@
 import axios from "axios";
-// import { setAlert } from "../layout/layout.action";
 import { setAuthToken } from "../auth/setAuthToken";
 
 const LOGIN_REQUEST = "LOGIN_REQUEST";

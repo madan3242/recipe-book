@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons"
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 const Recipe = () => {
   let [recipeId] = useState(useParams().id);
@@ -13,6 +14,12 @@ const Recipe = () => {
     ingredients: [],
     instructions: []
   });
+
+  let userInfo = useSelector((state) => {
+    return state.userData;
+  });
+
+  let { user } = userInfo;
 
   useEffect(() => {
     let url =  `http://127.0.0.1:4000/recipe/${recipeId}`
@@ -24,7 +31,7 @@ const Recipe = () => {
   
   return (
     <>
-      <Navbar />
+      <Navbar user={user} />
       <div className="container">
         <div className="row my-3">
             <Link to="/recipes">Go back</Link>

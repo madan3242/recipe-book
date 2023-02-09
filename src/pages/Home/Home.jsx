@@ -8,12 +8,15 @@ import RecipeCard from '../../components/Recipes/RecipeCard'
 import Search from '../../components/Search/Search'
 
 const Home = () => {
+  // to get data from redux state
   let userInfo = useSelector((state) => {
     return state.userData;
   });
 
+  //destructuring user info
   let {user} = userInfo
 
+  //to get featured products 
   let [recipes, setRecipes] = useState([])
   useEffect(() => {
     let url =  `http://127.0.0.1:4000/recipe/`
@@ -25,6 +28,7 @@ const Home = () => {
 
   return (
     <>
+      {/* {JSON.stringify(userInfo)} */}
       <Navbar user={user} />
       <Carousel />
       <Search />
