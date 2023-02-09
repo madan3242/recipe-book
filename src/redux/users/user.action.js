@@ -15,6 +15,7 @@ const GET_USER_INFO_FAILURE = "GET_USER_INFO_FAILURE";
 
 const USER_LOGOUT = "USER_LOGOUT";
 
+//to get the login 
 let getLogin = (user, navigate) => {
     return async (dispatch) => {
         try {

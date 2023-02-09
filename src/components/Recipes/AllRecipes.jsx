@@ -6,16 +6,19 @@ import Search from '../Search/Search'
 import RecipeCard from './RecipeCard';
 
 const AllRecipes = () => {
+  //useState hook to set the data
   let [recipes, setRecipes] = useState([]);
   const [filteredResults, setFilteredResults] = useState([]);
   const [searchInput, setSearchInput] = useState('');
 
+  // to get data from redux state
   let userInfo = useSelector((state) => {
     return state.userData;
   });
 
   let { user } = userInfo;
 
+  //to set the recipe using axios 
   useEffect(() => {
     let url =  `http://127.0.0.1:4000/recipe/`
     axios.get(url)
@@ -24,7 +27,7 @@ const AllRecipes = () => {
          })
   },[recipes])
 
-
+  //search handler for recipe items
   const searchItems = (searchValue) => {
         setSearchInput(searchValue)
         if (searchInput !== '') {

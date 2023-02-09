@@ -4,16 +4,17 @@ import { Link, useNavigate } from "react-router-dom";
 import { getLogin } from "../../redux/users/user.action";
 
 const Login = () => {
+  // to set input taken form user
   const [input, setInput] = useState({
     email: "",
     password: "",
   });
-
+  // to set errors 
   const [error, setError] = useState({
     email: "",
     password: "",
   });
-
+  // set inputs when chnages
   const onInputChange = (e) => {
     const { name, value } = e.target;
     setInput((prev) => ({
@@ -22,7 +23,7 @@ const Login = () => {
     }));
     validateInput(e);
   };
-
+  //set errors when input changes
   const validateInput = (e) => {
     let { name, value } = e.target;
     setError((prev) => {
@@ -50,6 +51,7 @@ const Login = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch();
 
+  //form submit handler
   const submitHandler = (event) => {
     event.preventDefault();
     dispatch(getLogin(input, navigate));

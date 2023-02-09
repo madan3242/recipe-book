@@ -5,6 +5,7 @@ import { getRegistration } from "../../redux/users/user.action";
 import "./style.css";
 
 const Register = () => {
+  // to set input taken form user
   const [input, setInput] = useState({
     firstName: "",
     lastName: "",
@@ -12,7 +13,7 @@ const Register = () => {
     password: "",
     confirmPassword: "",
   });
-
+  // to set errors 
   const [error, setError] = useState({
     firstName: "",
     lastName: "",
@@ -21,6 +22,7 @@ const Register = () => {
     confirmPassword: "",
   });
 
+  //set inputs when chnages
   const onInputChange = (e) => {
     const { name, value } = e.target;
     setInput((prev) => ({
@@ -30,6 +32,7 @@ const Register = () => {
     validateInput(e);
   };
 
+  //set errors when input changes
   const validateInput = (e) => {
     let { name, value } = e.target;
     setError((prev) => {
@@ -82,6 +85,7 @@ const Register = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  //form submit handler
   let submitHandler = (event) => {
     event.preventDefault();
     dispatch(getRegistration(input, navigate));

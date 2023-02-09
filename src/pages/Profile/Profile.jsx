@@ -6,12 +6,14 @@ import RecipeCard from "../../components/Recipes/RecipeCard";
 import userImg from "../../images/user.png";
 
 const Profile = () => {
+  //get user info using useSelector hook from redux state
   let userInfo = useSelector((state) => {
     return state.userData;
   });
 
   let { user } = userInfo;
 
+  //to get saved recipes of user
   let [saved, setSaved] = useState([]);
   useEffect(() => {
     let url = `http://127.0.0.1:4000/user/${user._id}/saved`
